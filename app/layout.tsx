@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SessionProvider from "@/components/providers/SessionProvider";
 
 export const metadata: Metadata = {
   title: "CV Maker - Creador de Currículums Profesionales",
@@ -14,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="antialiased">
-        <div className="min-h-screen bg-gray-50">
-          {children}
-        </div>
+        <SessionProvider>
+          <div className="min-h-screen bg-gray-50">
+            {children}
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
