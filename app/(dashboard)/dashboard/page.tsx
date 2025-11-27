@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import Link from "next/link";
+import SignOutButton from "@/components/auth/SignOutButton";
 
 export const metadata = {
   title: "Dashboard - CV Maker",
@@ -50,14 +51,7 @@ export default async function DashboardPage() {
               <span className="text-sm text-gray-600">
                 {session.user.email}
               </span>
-              <form action="/api/auth/signout" method="POST">
-                <button
-                  type="submit"
-                  className="text-sm text-blue-600 hover:text-blue-700"
-                >
-                  Cerrar Sesión
-                </button>
-              </form>
+              <SignOutButton />
             </div>
           </div>
         </div>
