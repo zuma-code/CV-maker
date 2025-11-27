@@ -37,4 +37,11 @@ next-env.d.ts
 
 # prisma
 /prisma/migrations
+/prisma/dev.db
+/prisma/dev.db-journal
+
+# test results
+/test-results/
+/playwright-report/
+/playwright/.cache/
 

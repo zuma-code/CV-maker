@@ -1,0 +1,48 @@
+// Esquema de base de datos para CV Maker
+// Usa SQLite para desarrollo (fácil de configurar)
+// Se puede cambiar a PostgreSQL para producción
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL") // Por defecto: "file:./dev.db"
+}
+
+// Modelo de Usuario
+// Almacena la información de los usuarios que se registran
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String   // Contraseña hasheada (nunca en texto plano)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relación: un usuario puede tener múltiples CVs
+  cvs       CV[]
+}
+
+// Modelo de CV
+// Almacena cada currículum vitae creado por los usuarios
+model CV {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title      String   // Título del CV (ej: "CV Frontend Developer")
+  slug       String   @unique // Slug único para URLs (ej: "cv-frontend-2024")
+  template   String   // Nombre de la plantilla usada (modern, classic, etc.)
+  data       String   // Datos del CV en formato JSON
+  isPublic   Boolean  @default(false) // Si el CV es público o privado
+  publicSlug String?  @unique // Slug público único para compartir (ej: "abc123xyz")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Índices para mejorar búsquedas
+  @@index([userId])
+  @@index([slug])
+  @@index([publicSlug])
+}
+

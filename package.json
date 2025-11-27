@@ -9,10 +9,19 @@
     "lint": "next lint",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed"
+    "test:headed": "playwright test --headed",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^7.0.1",
     "next": "^14.2.5",
+    "prisma": "^7.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -26,6 +35,7 @@
     "eslint-config-next": "^14.2.5",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
+    "tsx": "^4.20.6",
     "typescript": "^5.5.3"
   }
 }
