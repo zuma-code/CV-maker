@@ -15,21 +15,29 @@ export const metadata = {
 };
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions);
+  try {
+    const session = await getServerSession(authOptions);
 
-  if (!session?.user?.id) {
-    return null; // El layout ya redirige si no hay sesión
-  }
+    if (!session?.user?.id) {
+      return null; // El layout ya redirige si no hay sesión
+    }
 
-  // Obtener todos los CVs del usuario
-  const cvs = await prisma.cv.findMany({
-    where: {
-      userId: session.user.id,
-    },
-    orderBy: {
-      updatedAt: "desc",
-    },
-  });
+    // Obtener todos los CVs del usuario
+    let cvs = [];
+    try {
+      cvs = await prisma.cv.findMany({
+        where: {
+          userId: session.user.id,
+        },
+        orderBy: {
+          updatedAt: "desc",
+        },
+      });
+    } catch (error) {
+      console.error("Error al obtener CVs:", error);
+      // Si hay error, mostrar página vacía pero funcional
+      cvs = [];
+    }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -111,6 +119,23 @@ export default async function DashboardPage() {
         )}
       </main>
     </div>
-  );
+    );
+  } catch (error) {
+    console.error("Error en DashboardPage:", error);
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Error</h1>
+          <p className="text-gray-600">Hubo un problema al cargar el dashboard.</p>
+          <Link
+            href="/login"
+            className="mt-4 inline-block text-blue-600 hover:text-blue-700"
+          >
+            Volver al inicio
+          </Link>
+        </div>
+      </div>
+    );
+  }
 }
 
