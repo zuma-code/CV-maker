@@ -109,6 +109,12 @@ export default async function DashboardPage() {
                     >
                       Editar
                     </Link>
+                    <Link
+                      href={`/preview?id=${cv.id}`}
+                      className="flex-1 text-center bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors text-sm"
+                    >
+                      Vista Previa
+                    </Link>
                     <DeleteCVButton cvId={cv.id} cvTitle={cv.title} />
                   </div>
                   <DuplicateCVButton cvId={cv.id} cvTitle={cv.title} />

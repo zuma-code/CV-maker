@@ -7,9 +7,7 @@
 
 import { CVData } from "@/types/cv";
 import TemplateBase from "./TemplateBase";
-
-// Importaremos las plantillas específicas cuando las creemos
-// Por ahora, usamos TemplateBase como fallback
+import ModernTemplate from "./ModernTemplate";
 
 interface TemplateRendererProps {
   templateName: string;
@@ -20,9 +18,6 @@ export default function TemplateRenderer({
   templateName,
   data,
 }: TemplateRendererProps) {
-  // Por ahora, todas las plantillas usan TemplateBase
-  // Más adelante añadiremos plantillas específicas como ModernTemplate, ClassicTemplate, etc.
-  
   // Validar que el nombre de plantilla sea válido
   const validTemplates = [
     "modern",
@@ -36,16 +31,16 @@ export default function TemplateRenderer({
     ? templateName.toLowerCase()
     : "modern"; // Fallback a "modern" si no es válido
 
-  // Renderizar la plantilla base por ahora
-  // Más adelante haremos un switch/case para cada plantilla
+  // Renderizar la plantilla correspondiente
   switch (template) {
     case "modern":
+      return <ModernTemplate data={data} />;
     case "classic":
     case "creative":
     case "minimal":
     case "professional":
     default:
-      // Por ahora todas usan TemplateBase
+      // Por ahora las demás usan TemplateBase
       // En los siguientes pasos crearemos plantillas específicas
       return <TemplateBase data={data} />;
   }

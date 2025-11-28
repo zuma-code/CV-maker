@@ -17,7 +17,7 @@ export { default as ExperienceSection } from "./sections/ExperienceSection";
 export { default as EducationSection } from "./sections/EducationSection";
 export { default as SkillsSection } from "./sections/SkillsSection";
 
-// Plantillas específicas (se añadirán más adelante)
-// export { default as ModernTemplate } from "./ModernTemplate";
+// Plantillas específicas
+export { default as ModernTemplate } from "./ModernTemplate";
 // export { default as ClassicTemplate } from "./ClassicTemplate";
 
