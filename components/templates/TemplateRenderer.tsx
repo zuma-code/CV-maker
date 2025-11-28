@@ -32,6 +32,7 @@ export default function TemplateRenderer({
     : "modern"; // Fallback a "modern" si no es válido
 
   // Renderizar la plantilla correspondiente
+  // Todas las plantillas ya tienen el ID "cv-content" en su componente base
   switch (template) {
     case "modern":
       return <ModernTemplate data={data} />;

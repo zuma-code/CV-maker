@@ -6,12 +6,16 @@
  * Ruta: /preview o /preview?id=[cvId]
  */
 
+"use client";
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { redirect } from "next/navigation";
 import TemplateRenderer from "@/components/templates/TemplateRenderer";
 import { CVData } from "@/types/cv";
+import PrintButton from "@/components/editor/PrintButton";
+import Link from "next/link";
 
 export const metadata = {
   title: "Vista Previa - CV Maker",
@@ -97,7 +101,7 @@ export default async function PreviewPage({ searchParams }: PreviewPageProps) {
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-6 flex justify-between items-center">
+        <div className="mb-6 flex justify-between items-center no-print">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
               Vista Previa: {cv.title}
@@ -106,12 +110,15 @@ export default async function PreviewPage({ searchParams }: PreviewPageProps) {
               Plantilla: {cv.template}
             </p>
           </div>
-          <a
-            href="/dashboard"
-            className="text-blue-600 hover:text-blue-700 text-sm"
-          >
-            ← Volver al Dashboard
-          </a>
+          <div className="flex gap-2">
+            <PrintButton />
+            <Link
+              href="/dashboard"
+              className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm"
+            >
+              ← Volver al Dashboard
+            </Link>
+          </div>
         </div>
 
         {/* Vista previa del CV */}

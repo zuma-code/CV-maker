@@ -24,7 +24,8 @@ export default function TemplateBase({
 }: TemplateBaseProps) {
   return (
     <div
-      className={`template-base bg-white p-8 md:p-12 max-w-4xl mx-auto shadow-lg ${className}`}
+      id="cv-content"
+      className={`template-base bg-white p-8 md:p-12 max-w-4xl mx-auto shadow-lg print:shadow-none ${className}`}
     >
       {/* Información Personal - Siempre al inicio */}
       <PersonalInfoSection personalInfo={data.personalInfo} className="mb-8" />

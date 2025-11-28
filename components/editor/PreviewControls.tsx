@@ -9,6 +9,7 @@
 interface PreviewControlsProps {
   zoom: number;
   onZoomChange: (zoom: number) => void;
+  onPrint?: () => void;
   onExportPDF?: () => void;
   onExportWord?: () => void;
 }
@@ -16,6 +17,7 @@ interface PreviewControlsProps {
 export default function PreviewControls({
   zoom,
   onZoomChange,
+  onPrint,
   onExportPDF,
   onExportWord,
 }: PreviewControlsProps) {
@@ -46,17 +48,28 @@ export default function PreviewControls({
         </div>
       </div>
 
-      {/* Botones de Exportación */}
+      {/* Botones de Acción */}
       <div className="flex gap-2 ml-auto">
+        {onPrint && (
+          <button
+            onClick={onPrint}
+            className="px-3 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors font-medium"
+            title="Imprimir CV"
+          >
+            🖨️ Imprimir
+          </button>
+        )}
         <button
           onClick={onExportWord}
           className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+          title="Exportar a Word (próximamente)"
         >
           WORD
         </button>
         <button
           onClick={onExportPDF}
           className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+          title="Exportar a PDF (próximamente)"
         >
           PDF
         </button>

@@ -20,4 +20,66 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Estilos para impresión */
+@media print {
+  /* Ocultar elementos que no queremos imprimir */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Mostrar solo el CV */
+  #cv-content,
+  #cv-content * {
+    visibility: visible;
+  }
+
+  #cv-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    page-break-after: avoid;
+  }
+
+  /* Asegurar que el CV ocupe toda la página */
+  @page {
+    margin: 0;
+    size: A4;
+  }
+
+  /* Ocultar controles, headers, footers, etc. */
+  header,
+  nav,
+  footer,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ajustar estilos del CV para impresión */
+  .modern-template,
+  .template-base {
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5cm;
+    box-shadow: none;
+  }
+
+  /* Asegurar que los enlaces se vean bien */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* Evitar saltos de página dentro de secciones importantes */
+  .experience-item,
+  .education-item {
+    page-break-inside: avoid;
+  }
+}
+
 

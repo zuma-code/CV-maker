@@ -47,6 +47,12 @@ export default function EditorLayout({
   const [error, setError] = useState("");
   const isInitialMount = useRef(true);
 
+  // Función para imprimir el CV
+  const handlePrint = useCallback(() => {
+    // Abrir ventana de impresión del navegador
+    window.print();
+  }, []);
+
   // Función para actualizar los datos del CV
   const updateCVData = (newData: CVData) => {
     setCvData(newData);
@@ -278,6 +284,7 @@ export default function EditorLayout({
                 <PreviewControls
                   zoom={previewZoom}
                   onZoomChange={setPreviewZoom}
+                  onPrint={handlePrint}
                   onExportPDF={() => {
                     // TODO: Implementar exportación a PDF
                     alert("Exportación a PDF próximamente");
@@ -290,6 +297,7 @@ export default function EditorLayout({
               </div>
               <div className="border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
                 <div
+                  id="cv-preview"
                   className="origin-top-left transition-transform duration-200"
                   style={{
                     transform: `scale(${previewZoom})`,

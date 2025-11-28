@@ -20,7 +20,7 @@ interface ModernTemplateProps {
 
 export default function ModernTemplate({ data }: ModernTemplateProps) {
   return (
-    <div className="modern-template bg-white max-w-4xl mx-auto shadow-2xl overflow-hidden">
+    <div id="cv-content" className="modern-template bg-white max-w-4xl mx-auto shadow-2xl overflow-hidden print:shadow-none">
       {/* Header con gradiente */}
       <header className="bg-gradient-to-r from-blue-500 via-blue-600 to-green-500 text-white p-8 md:p-12">
         <div className="max-w-3xl mx-auto">
