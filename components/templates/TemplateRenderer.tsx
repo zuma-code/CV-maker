@@ -8,6 +8,7 @@
 import { CVData } from "@/types/cv";
 import TemplateBase from "./TemplateBase";
 import ModernTemplate from "./ModernTemplate";
+import ClassicTemplate from "./ClassicTemplate";
 
 interface TemplateRendererProps {
   templateName: string;
@@ -37,6 +38,7 @@ export default function TemplateRenderer({
     case "modern":
       return <ModernTemplate data={data} />;
     case "classic":
+      return <ClassicTemplate data={data} />;
     case "creative":
     case "minimal":
     case "professional":

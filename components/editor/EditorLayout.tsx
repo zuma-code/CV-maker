@@ -18,6 +18,8 @@ import PersonalInfoForm from "./sections/PersonalInfoForm";
 import ExperienceForm from "./sections/ExperienceForm";
 import EducationForm from "./sections/EducationForm";
 import SkillsForm from "./sections/SkillsForm";
+import LanguagesForm from "./sections/LanguagesForm";
+import CertificationsForm from "./sections/CertificationsForm";
 import EditorTabs from "./EditorTabs";
 import TemplateSelector from "./TemplateSelector";
 import ColorThemeSelector from "./ColorThemeSelector";
@@ -266,6 +268,38 @@ export default function EditorLayout({
                       updateCVData({
                         ...cvData,
                         skills: skills,
+                      });
+                    }}
+                  />
+                </div>
+
+                {/* Idiomas */}
+                <div className="bg-white rounded-lg shadow-sm p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    Idiomas
+                  </h3>
+                  <LanguagesForm
+                    languages={cvData.languages || []}
+                    onUpdate={(languages) => {
+                      updateCVData({
+                        ...cvData,
+                        languages: languages,
+                      });
+                    }}
+                  />
+                </div>
+
+                {/* Certificaciones */}
+                <div className="bg-white rounded-lg shadow-sm p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    Certificaciones
+                  </h3>
+                  <CertificationsForm
+                    certifications={cvData.certifications || []}
+                    onUpdate={(certifications) => {
+                      updateCVData({
+                        ...cvData,
+                        certifications: certifications,
                       });
                     }}
                   />
