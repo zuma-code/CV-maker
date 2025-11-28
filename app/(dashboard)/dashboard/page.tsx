@@ -10,6 +10,7 @@ import { prisma } from "@/lib/db";
 import Link from "next/link";
 import SignOutButton from "@/components/auth/SignOutButton";
 import DeleteCVButton from "@/components/dashboard/DeleteCVButton";
+import DuplicateCVButton from "@/components/dashboard/DuplicateCVButton";
 
 export const metadata = {
   title: "Dashboard - CV Maker",
@@ -100,14 +101,17 @@ export default async function DashboardPage() {
                 <p className="text-sm text-gray-500 mb-4">
                   Plantilla: {cv.template}
                 </p>
-                <div className="flex gap-2">
-                  <Link
-                    href={`/editor/${cv.id}`}
-                    className="flex-1 text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors text-sm"
-                  >
-                    Editar
-                  </Link>
-                  <DeleteCVButton cvId={cv.id} cvTitle={cv.title} />
+                <div className="flex gap-2 flex-col">
+                  <div className="flex gap-2">
+                    <Link
+                      href={`/editor/${cv.id}`}
+                      className="flex-1 text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors text-sm"
+                    >
+                      Editar
+                    </Link>
+                    <DeleteCVButton cvId={cv.id} cvTitle={cv.title} />
+                  </div>
+                  <DuplicateCVButton cvId={cv.id} cvTitle={cv.title} />
                 </div>
                 <p className="text-xs text-gray-400 mt-4">
                   Actualizado: {new Date(cv.updatedAt).toLocaleDateString()}
