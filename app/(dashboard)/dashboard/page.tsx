@@ -9,6 +9,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import Link from "next/link";
 import SignOutButton from "@/components/auth/SignOutButton";
+import DeleteCVButton from "@/components/dashboard/DeleteCVButton";
 
 export const metadata = {
   title: "Dashboard - CV Maker",
@@ -24,9 +25,15 @@ export default async function DashboardPage() {
     }
 
     // Obtener todos los CVs del usuario
-    let cvs = [];
+    let cvs: Array<{
+      id: string;
+      title: string;
+      slug: string;
+      template: string;
+      updatedAt: Date;
+    }> = [];
     try {
-      cvs = await prisma.cv.findMany({
+      cvs = await prisma.cV.findMany({
         where: {
           userId: session.user.id,
         },
@@ -100,9 +107,7 @@ export default async function DashboardPage() {
                   >
                     Editar
                   </Link>
-                  <button className="flex-1 text-center bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors text-sm">
-                    Eliminar
-                  </button>
+                  <DeleteCVButton cvId={cv.id} cvTitle={cv.title} />
                 </div>
                 <p className="text-xs text-gray-400 mt-4">
                   Actualizado: {new Date(cv.updatedAt).toLocaleDateString()}
