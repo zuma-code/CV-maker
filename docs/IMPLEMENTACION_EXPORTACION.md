@@ -24,13 +24,19 @@ Implementar funcionalidades para exportar el CV a imágenes (PNG, JPG, SVG) y pe
 - `components/templates/TemplateBase.tsx` - Añadido ID "cv-content"
 - `app/(dashboard)/preview/page.tsx` - Añadido botón de impresión
 
-### Fase 2: Exportación a Imágenes (PENDIENTE) 🔄
-- [ ] Instalar dependencia html-to-image (en proceso)
-- [ ] Crear función para exportar a PNG
-- [ ] Crear función para exportar a JPG
-- [ ] Crear función para exportar a SVG
-- [ ] Añadir botones de exportación en PreviewControls
-- [ ] Manejar errores y mostrar feedback al usuario
+### ✅ Fase 2: Exportación a Imágenes (COMPLETADA)
+- [x] Instalar dependencia html-to-image
+- [x] Crear funciones helper para exportar (exportToPNG, exportToJPG, exportToSVG)
+- [x] Crear función generateSafeFilename para nombres de archivo
+- [x] Añadir botones de exportación en PreviewControls (PNG, JPG, SVG)
+- [x] Manejar errores y mostrar feedback visual durante la exportación
+- [x] Integrar con el título del CV para nombres de archivo personalizados
+
+**Archivos creados/modificados:**
+- `lib/export-helpers.ts` - Nuevo archivo con funciones de exportación
+- `components/editor/PreviewControls.tsx` - Añadidos botones de exportación
+- `components/editor/EditorLayout.tsx` - Pasado cvTitle a PreviewControls
+- `package.json` - Añadida dependencia html-to-image
 
 ## 🔧 Cómo Funciona la Impresión
 

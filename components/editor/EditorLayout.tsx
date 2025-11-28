@@ -285,6 +285,7 @@ export default function EditorLayout({
                   zoom={previewZoom}
                   onZoomChange={setPreviewZoom}
                   onPrint={handlePrint}
+                  cvTitle={cvTitle}
                   onExportPDF={() => {
                     // TODO: Implementar exportación a PDF
                     alert("Exportación a PDF próximamente");
