@@ -28,3 +28,4 @@ fi
 
 echo "✨ ¡Configuración completada!"
 
+

@@ -10,3 +10,4 @@ export interface Template {
   category: 'modern' | 'traditional' | 'creative' | 'minimal' | 'professional';
 }
 
+

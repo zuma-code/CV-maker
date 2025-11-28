@@ -120,3 +120,4 @@
 4. **Exportación fácil**: PDF es el formato más solicitado
 5. **Compartir es importante**: Muchos usuarios quieren compartir su CV en línea
 
+
