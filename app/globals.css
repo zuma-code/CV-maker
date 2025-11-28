@@ -63,6 +63,7 @@ body {
   /* Ajustar estilos del CV para impresión */
   .modern-template,
   .classic-template,
+  .creative-template,
   .template-base {
     max-width: 100%;
     margin: 0;
