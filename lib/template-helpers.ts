@@ -77,3 +77,4 @@ export function getAvailableTemplates(): string[] {
   return ["modern", "classic", "creative", "minimal", "professional"];
 }
 
+

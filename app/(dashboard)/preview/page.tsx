@@ -6,8 +6,6 @@
  * Ruta: /preview o /preview?id=[cvId]
  */
 
-"use client";
-
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/db";
@@ -16,11 +14,6 @@ import TemplateRenderer from "@/components/templates/TemplateRenderer";
 import { CVData } from "@/types/cv";
 import PrintButton from "@/components/editor/PrintButton";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Vista Previa - CV Maker",
-  description: "Vista previa de tu currículum vitae",
-};
 
 interface PreviewPageProps {
   searchParams: { id?: string };
