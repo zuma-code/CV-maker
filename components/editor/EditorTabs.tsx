@@ -47,3 +47,4 @@ export default function EditorTabs({ activeTab, onTabChange }: EditorTabsProps) 
 }
 
 
+
