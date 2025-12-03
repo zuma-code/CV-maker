@@ -5,6 +5,7 @@
 - [Notas Resumidas](#notas-resumidas)
 - [Aplicaciones Comerciales Analizadas](#aplicaciones-comerciales-analizadas)
 - [Tecnologías y Librerías](#tecnologías-y-librerías)
+- [Análisis de Proyecto de Referencia](#análisis-de-proyecto-de-referencia)
 
 ## Enlaces
 
@@ -112,6 +113,22 @@
 - **Compatibilidad ATS**: Estructura clara y semántica en las plantillas
 - **Performance**: Lazy loading, code splitting, optimización de imágenes
 
+## Análisis de Proyecto de Referencia
+
+### Proyecto cv-main
+- **Archivo fuente**: `repomix-output-cv-main.zip.md`
+- **Análisis completo**: Ver [ANALISIS_PROYECTO_REFERENCIA.md](./ANALISIS_PROYECTO_REFERENCIA.md)
+
+**Características principales identificadas**:
+- Sistema de navegación por secciones (hash navigation)
+- Exportación a múltiples formatos (PNG, JPG, SVG)
+- Secciones adicionales: Proyectos, Contribuciones, Tecnologías
+- SEO avanzado con JSON-LD
+- Componentes memoizados para mejor rendimiento
+- Estilos de impresión optimizados para A4
+
+**Estado**: Análisis completo realizado - Ver documento de análisis para detalles de implementación
+
 ## Lecciones Aprendidas
 
 1. **Simplicidad es clave**: Las mejores apps tienen interfaces intuitivas
@@ -119,6 +136,8 @@
 3. **Vista previa en tiempo real**: Esencial para una buena experiencia
 4. **Exportación fácil**: PDF es el formato más solicitado
 5. **Compartir es importante**: Muchos usuarios quieren compartir su CV en línea
+6. **Navegación interna**: Los CVs largos se benefician de navegación por secciones
+7. **SEO es crucial**: Para CVs públicos, el SEO mejora la visibilidad
 
 
 
